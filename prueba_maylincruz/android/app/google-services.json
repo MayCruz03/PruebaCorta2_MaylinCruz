@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "652473045672",
+    "project_id": "pruebacorta2-maylincruz",
+    "storage_bucket": "pruebacorta2-maylincruz.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:652473045672:android:76edb18e5e8aec9b22689d",
+        "android_client_info": {
+          "package_name": "com.example.prueba_maylincruz"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDzyB8G3bDohHqp_gPQJaHlV50h248mv4w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
