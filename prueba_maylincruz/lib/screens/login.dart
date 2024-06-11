@@ -84,7 +84,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   TextButton(
                     onPressed: () {
-                      context.go('/createUser');
+                      context.go('/CreateUserPage');
                     },
                     child: Text('¿No tienes una cuenta? Crea una aquí'),
                   ),

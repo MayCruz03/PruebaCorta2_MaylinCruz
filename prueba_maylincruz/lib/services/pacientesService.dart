@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:prueba_maylincruz/models/pacientesModel.dart';
 import 'package:prueba_maylincruz/repositories/pacientesRepository.dart';
 
@@ -22,5 +23,18 @@ class PacienteService {
 
   Future<void> eliminarPaciente(String id) async {
     await _repository.eliminarPaciente(id);
+  }
+
+  Future<Paciente> obtenerPacientePorReferencia(
+      DocumentReference referencia) async {
+    // Obtener el ID del paciente desde la referencia
+    String id = referencia.id;
+
+    // Utilizar el método obtenerPacientePorId para obtener el paciente completo por su ID
+    Paciente? paciente = await obtenerPacientePorId(id);
+
+    // Retornar el paciente obtenido
+    return paciente ??
+        Paciente(id: '', nombre: '', edad: 0, fotoUrl: '', historial: '');
   }
 }

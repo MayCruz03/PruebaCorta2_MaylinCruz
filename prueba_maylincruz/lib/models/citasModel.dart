@@ -2,16 +2,16 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Cita {
   String id;
-  String paciente;
-  String doctor;
+  DocumentReference pacienteId;
+  DocumentReference doctorId;
   DateTime fechaHora;
   String motivo;
   String estado;
 
   Cita({
     required this.id,
-    required this.paciente,
-    required this.doctor,
+    required this.pacienteId,
+    required this.doctorId,
     required this.fechaHora,
     required this.motivo,
     required this.estado,
@@ -21,8 +21,8 @@ class Cita {
     Map<String, dynamic> data = cita.data() as Map<String, dynamic>;
     return Cita(
       id: cita.id,
-      paciente: data['pacienteId'] ?? '',
-      doctor: data['doctorId'] ?? '',
+      pacienteId: data['pacienteId'] as DocumentReference,
+      doctorId: data['doctorId'] as DocumentReference,
       fechaHora: (data['fecha'] as Timestamp).toDate(),
       motivo: data['motivo'] ?? '',
       estado: data['estado'] ?? '',
@@ -31,8 +31,8 @@ class Cita {
 
   Map<String, dynamic> toFirestore() {
     return {
-      'pacienteId': paciente,
-      'doctorId': doctor,
+      'pacienteId': pacienteId,
+      'doctorId': doctorId,
       'fecha': fechaHora,
       'motivo': motivo,
       'estado': estado,
