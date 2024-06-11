@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:go_router/go_router.dart';
-import 'package:prueba_maylincruz/screens/login.dart';
-import 'package:prueba_maylincruz/screens/principal.dart';
 
 class CreateUserPage extends StatefulWidget {
   @override
@@ -113,14 +111,4 @@ class _CreateUserPageState extends State<CreateUserPage> {
       ),
     );
   }
-}
-
-void main() {
-  runApp(MaterialApp(
-    home: CreateUserPage(),
-    routes: {
-      '/': (context) => MyHomePage(),
-      '/LoginPage': (context) => LoginPage(),
-    },
-  ));
 }

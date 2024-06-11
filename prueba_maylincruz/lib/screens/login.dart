@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:go_router/go_router.dart';
 
 class LoginPage extends StatefulWidget {
@@ -23,7 +24,15 @@ class _LoginPageState extends State<LoginPage> {
           email: email,
           password: password,
         );
-        context.go('/');
+
+        final userDoc = await FirebaseFirestore.instance
+            .collection('usuarios')
+            .doc(userCredential.user!.uid)
+            .get();
+
+        final nombreUsuario = userDoc['fullName'] as String;
+
+        context.go('/', extra: nombreUsuario);
       } catch (e) {
         setState(() {
           _errorMessage = 'Error al iniciar sesión: ${e.toString()}';
@@ -84,7 +93,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   TextButton(
                     onPressed: () {
-                      context.go('/CreateUserPage');
+                      context.go('/Usuario');
                     },
                     child: Text('¿No tienes una cuenta? Crea una aquí'),
                   ),
