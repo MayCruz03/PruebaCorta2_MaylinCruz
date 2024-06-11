@@ -6,7 +6,7 @@ class Doctor {
   String id;
   String nombre;
   String especialidad;
-  Bool disponibilidad;
+  bool disponibilidad;
   String horario;
   String fotoUrl;
 
